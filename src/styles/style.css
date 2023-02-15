@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.jogo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 59px;
+}
+
+.direita {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 700px;
+  list-style-type: none;
+}
+
+li {
+  margin-right: 12px;
+  margin-bottom: 11px;
+}
+
+.teclado {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
