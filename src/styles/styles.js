@@ -34,9 +34,23 @@ export const Buttonletra = styled.button`
   };
 `;
 
+export const Buttonchute = styled(Buttonletra)`
+  width: 100px
+`;
+
 export const Palavra = styled.h1`
-font-family: 'Noto Sans';
-font-weight: 700;
-font-size: 50px;  
-color:#000000
+  font-family: 'Noto Sans';
+  font-weight: 700;
+  font-size: 50px;  
+  color:#000000
+`;
+
+export const Input = styled.input`
+  width: 353px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  font-size: 30px;
 `;

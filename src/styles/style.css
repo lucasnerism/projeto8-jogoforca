@@ -37,3 +37,11 @@ li {
   align-items: center;
   justify-content: center;
 }
+
+.chute {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto 0;
+}

@@ -9,11 +9,9 @@ export default function App() {
   const [acertos, setAcertos] = React.useState(0);
   const [palavraescolhida, setPalavraescolhida] = React.useState("");
   const [palavraEmJogo, setPalavraEmJogo] = React.useState("");
-  const [palavraEmTela, setPalavraEmTela] = React.useState("");
+
 
   function checkFimDeJogo(contacertos, conterros) {
-    console.log(contacertos);
-    console.log(conterros);
     if (contacertos === palavraescolhida.length) {
       setEstadoJogo("#27AE60");
       setDisable(true);
@@ -39,14 +37,22 @@ export default function App() {
         palavraEmJogo={palavraEmJogo}
         setAcertos={setAcertos}
         setEstadoJogo={setEstadoJogo}
-        palavraEmTela={palavraEmTela}
-        setPalavraEmTela={setPalavraEmTela}
         checkFimDeJogo={checkFimDeJogo}
         acertos={acertos}
       />
 
 
-      <Chute />
+      <Chute
+        disable={disable}
+        setDisable={setDisable}
+        acertos={acertos}
+        setAcertos={setAcertos}
+        erros={erros}
+        setErros={setErros}
+        checkFimDeJogo={checkFimDeJogo}
+        palavraescolhida={palavraescolhida}
+        setPalavraEmJogo={setPalavraEmJogo}
+      />
     </>
   );
 
