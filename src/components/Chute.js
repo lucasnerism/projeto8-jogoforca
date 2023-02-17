@@ -17,12 +17,13 @@ export default function Chute(props) {
   }
 
   function chutar() {
+    const maxErros = 6;
     props.setPalavraEmJogo(props.palavraescolhida);
     if (palavra === props.palavraescolhida) {
       props.checkFimDeJogo(props.palavraescolhida.length, props.erros);
     } else {
-      props.setErros(6);
-      props.checkFimDeJogo(0, 6);
+      props.setErros(maxErros);
+      props.checkFimDeJogo(0, maxErros);
     }
   }
 }

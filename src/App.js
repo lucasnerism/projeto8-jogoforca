@@ -12,11 +12,11 @@ export default function App() {
 
 
   function checkFimDeJogo(contacertos, conterros) {
+    const maxErros = 6;
     if (contacertos === palavraescolhida.length) {
       setEstadoJogo("#27AE60");
       setDisable(true);
-    }
-    else if (conterros === 6) {
+    } else if (conterros === maxErros) {
       setEstadoJogo("#FF0000");
       setPalavraEmJogo(palavraescolhida);
       setDisable(true);
