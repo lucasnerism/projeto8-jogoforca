@@ -7,6 +7,7 @@ Cada passo do desenvolvimento do projeto foi _versionada_ no`GitHub`. Vocês pod
 [> O projeto pode ser acessado online aqui <](https://projeto8-jogoforca-lucasnerism.vercel.app/)
 
 Esse projeto foi feito utilizando apenas **React** e não foi utilizado **useEffect**
+Para executar esse projeto localmente você precisa ter o [Node.js](https://nodejs.org/) instalado.
 
 ## Este projeto é sobre
 
