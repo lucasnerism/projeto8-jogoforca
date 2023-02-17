@@ -13,7 +13,7 @@ export default function Chute(props) {
   );
 
   function palavraInput(valor) {
-    setPalavra(valor);
+    setPalavra(valor.toLowerCase());
   }
 
   function chutar() {
