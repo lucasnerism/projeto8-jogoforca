@@ -4,10 +4,14 @@ import { Input, Buttonchute } from "../styles/styles";
 export default function Chute(props) {
   const [palavra, setPalavra] = React.useState("");
 
+
   return (
     <div className="chute">
       <p>Já sei a palavra!</p>
-      <Input data-test="guess-input" disabled={props.disable} onChange={event => palavraInput(event.target.value)} />
+      <Input data-test="guess-input" disabled={props.disable}
+        onChange={event => palavraInput(event.target.value)}
+        onKeyDown={event => { if (event.key === "Enter") chutar(); }}
+        onFocus={event => event.target.value = ""} />
       <Buttonchute data-test="guess-button" disabled={props.disable} onClick={chutar} >Chutar</Buttonchute>
     </div>
   );
