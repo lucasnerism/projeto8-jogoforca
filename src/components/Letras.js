@@ -19,10 +19,11 @@ export default function Letras(props) {
     let aux = 0;
     let contadorerros = props.erros;
     let contadoracertos = props.acertos;
+    const palavraSemCaracter = props.palavraescolhida.normalize('NFKD').replace(/[^\w]/g, '');
 
     for (let i = 0; i < props.palavraescolhida.length; i++) {
-      if (ltr === props.palavraescolhida[i]) {
-        atualizarpalavra[i] = ltr;
+      if (ltr === palavraSemCaracter[i]) {
+        atualizarpalavra[i] = props.palavraescolhida[i];
         aux++;
         contadoracertos++;
         props.setAcertos(contadoracertos);
@@ -36,18 +37,5 @@ export default function Letras(props) {
     props.checkFimDeJogo(contadoracertos, contadorerros);
   }
 
-  /*   function checkFimDeJogo(contacertos, conterros) {
-      console.log(contacertos);
-      console.log(conterros);
-      if (contacertos === props.palavraescolhida.length) {
-        props.setEstadoJogo("venceu");
-        props.setDisable(true);
-      }
-      else if (conterros === 6) {
-        props.setEstadoJogo("perdeu");
-        props.setPalavraEmJogo(props.palavraescolhida);
-        props.setDisable(true);
-      }
-    } */
 }
 

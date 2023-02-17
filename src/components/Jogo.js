@@ -49,6 +49,7 @@ export default function Jogo(props) {
     const palavra = palavras[random];
     props.setPalavraescolhida(palavra);
     props.setDisable(false);
+    console.log(palavra);
     alterarpor_(palavra);
     props.setAcertos(0);
     props.setErros(0);
