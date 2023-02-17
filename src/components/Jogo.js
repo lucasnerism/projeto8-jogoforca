@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { Palavra } from "../styles/styles";
 import palavras from "../palavras";
 import { Button, Img } from "../styles/styles";
 import { imagens } from "./imagens";
@@ -9,22 +9,16 @@ const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 
 
 export default function Jogo(props) {
-  const Palavra = styled.h1`
-  font-family: 'Noto Sans';
-  font-weight: 700;
-  font-size: 50px;  
-  color:${estadodoJogo()}
-`;
 
+  const [letraUsada, setLetraUsada] = React.useState([]);
 
-  const [wordonscreen, setWordonscreen] = React.useState(props.palavraEmJogo);
   return (
     <>
       <div className="jogo">
         <Img data-test="game-image" src={imagens[props.erros]} />
         <div className="direita">
           <Button data-test="choose-word" onClick={selecionaPalavra}>Escolher palavra</Button>
-          <Palavra data-test="word" >{wordonscreen}</Palavra>
+          <Palavra data-test="word" style={{ color: props.estadoJogo }} >{props.palavraEmJogo}</Palavra>
         </div>
       </div>
       <div className="teclado">
@@ -32,24 +26,23 @@ export default function Jogo(props) {
           {alfabeto.map((char, index) => (<Letras
             letra={char}
             key={index}
-            ativo={props.disable}
+            disable={props.disable}
             palavraescolhida={props.palavraescolhida}
             setPalavraEmJogo={props.setPalavraEmJogo}
             palavraEmJogo={props.palavraEmJogo}
             erros={props.erros}
             setErros={props.setErros}
-            setWordonscreen={setWordonscreen}
+            setAcertos={props.setAcertos}
+            setEstadoJogo={props.setEstadoJogo}
+            checkFimDeJogo={props.checkFimDeJogo}
+            acertos={props.acertos}
+            letraUsada={letraUsada}
+            setLetraUsada={setLetraUsada}
           />))}
         </ul>
       </div>
     </>
   );
-
-  function estadodoJogo() {
-    if (props.estadoJogo === "venceu") return "#27AE60";
-    else if (props.estadoJogo === "perdeu") return "#FF0000";
-    else return "#000000";
-  }
 
   function selecionaPalavra() {
     const random = Math.round(Math.random() * (palavras.length - 1));
@@ -58,7 +51,10 @@ export default function Jogo(props) {
     props.setDisable(false);
     console.log(palavra);
     alterarpor_(palavra);
-
+    props.setAcertos(0);
+    props.setErros(0);
+    setLetraUsada([]);
+    props.setEstadoJogo("#000000");
   }
 
   function alterarpor_(palavra) {
@@ -67,6 +63,6 @@ export default function Jogo(props) {
       palavra[i] = " _";
     }
     props.setPalavraEmJogo(palavra);
-    setWordonscreen(palavra.join(""));
+
   }
 }

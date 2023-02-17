@@ -33,3 +33,10 @@ export const Buttonletra = styled.button`
     color: #798A9F;    
   };
 `;
+
+export const Palavra = styled.h1`
+font-family: 'Noto Sans';
+font-weight: 700;
+font-size: 50px;  
+color:#000000
+`;
